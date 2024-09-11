@@ -4,6 +4,7 @@ from PyPDF2 import PdfReader, PdfWriter
 from PIL import Image
 from openpyxl import load_workbook
 from pptx import Presentation
+import csv
 
 
 def read_and_save_docx(file_path, new_file_path):
@@ -42,10 +43,21 @@ def read_and_save_pptx(file_path, new_file_path):
     presentation.save(new_file_path)
 
 
+def read_and_save_csv(file_path, new_file_path):
+    # 使用内置csv模块读取并保存CSV文件
+    with open(file_path, newline='', encoding='utf-8') as csvfile:
+        reader = csv.reader(csvfile)
+        rows = [row for row in reader]
+
+    with open(new_file_path, mode='w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerows(rows)
+
+
 def is_encrypted(file_path):
     # 判断加密文件是否有对应的ascii字符，若有，则返回True，若无，则返回False
     search_string = "Esafenet".encode("ascii")
-    with file_path.open("rb") as file:
+    with open(file_path, "rb") as file:
         first_chunk = file.read(1024)
         if search_string in first_chunk:
             print(
@@ -61,7 +73,7 @@ def is_encrypted(file_path):
 
 def process_file(file_path):
     file_extension = os.path.splitext(file_path)[1].lower()
-    new_file_path = f"{os.path.splitext(file_path)[0]}.info"
+    new_file_path = f"{os.path.splitext(file_path)[0]}_.{file_extension}"
 
     try:
         if file_extension == '.docx':
@@ -74,16 +86,17 @@ def process_file(file_path):
             read_and_save_xlsx(file_path, new_file_path)
         elif file_extension == '.pptx':
             read_and_save_pptx(file_path, new_file_path)
+        # elif file_extension == '.csv':
+        #     # 根据需求选择合适的读取方式
+        #     read_and_save_csv(file_path, new_file_path)
         else:
             if is_encrypted(file_path):
-                with open(file_path, "rb") as original_file:
-                    binary_data = original_file.read()
+                with open(file_path, "rb") as file:
+                    encrypted = file.read()
+                    with open(new_file_path, "wb") as f:
+                        f.write(encrypted)
 
-                # 使用 .info 扩展名保存加密文件
-                with open(new_file_path, "wb") as new_file:
-                    new_file.write(binary_data)
-                print(f"Encrypted file saved as: {new_file_path}")
-            else:
-                raise ValueError(f"Unsupported or unencrypted file type: {file_extension}")
     except Exception as e:
-        raise e
+        raise ValueError(f"Unsupported or unencrypted file type: {file_extension}")
+
+
