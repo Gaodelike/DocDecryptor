@@ -42,6 +42,23 @@ def read_and_save_pptx(file_path, new_file_path):
     presentation.save(new_file_path)
 
 
+def is_encrypted(file_path):
+    # 判断加密文件是否有对应的ascii字符，若有，则返回True，若无，则返回False
+    search_string = "Esafenet".encode("ascii")
+    with file_path.open("rb") as file:
+        first_chunk = file.read(1024)
+        if search_string in first_chunk:
+            print(
+                f"Found '{search_string.decode()}' at the beginning of file: {file_path}"
+            )
+            return True
+        else:
+            print(
+                f"'{search_string.decode()}' not found at the beginning of file: {file_path}"
+            )
+            return False
+
+
 def process_file(file_path):
     file_extension = os.path.splitext(file_path)[1].lower()
     new_file_path = f"{os.path.splitext(file_path)[0]}.info"
@@ -58,6 +75,15 @@ def process_file(file_path):
         elif file_extension == '.pptx':
             read_and_save_pptx(file_path, new_file_path)
         else:
-            raise ValueError(f"Unsupported file type: {file_extension}")
+            if is_encrypted(file_path):
+                with open(file_path, "rb") as original_file:
+                    binary_data = original_file.read()
+
+                # 使用 .info 扩展名保存加密文件
+                with open(new_file_path, "wb") as new_file:
+                    new_file.write(binary_data)
+                print(f"Encrypted file saved as: {new_file_path}")
+            else:
+                raise ValueError(f"Unsupported or unencrypted file type: {file_extension}")
     except Exception as e:
         raise e
