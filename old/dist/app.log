@@ -1,0 +1,13 @@
+2024-08-16 14:16:16,414 - ERROR - Error processing file C:/Users/gaoruiyang/Desktop/test.png: unknown file extension: .info
+2024-08-16 14:18:35,212 - ERROR - Error processing file C:/Users/gaoruiyang/Desktop/test.png: unknown file extension: .info
+2024-08-16 14:22:11,111 - ERROR - Error processing file C:/Users/gaoruiyang/Desktop/test.png: unknown file extension: .info
+2024-08-16 14:42:05,674 - ERROR - Error processing file D:/workspace/0.专利与软著/DWCTCIdentify/APP.png: unknown file extension: .info
+2024-08-30 12:58:50,280 - ERROR - Error processing file D:/workspace/0.专利与软著/ImageFilter/软著信息采集表-一种分类CTC荧光显微镜图像TRIC通道的软件.doc: Unsupported file type: .doc
+2024-08-30 12:59:13,281 - ERROR - Error processing file D:/workspace/0.专利与软著/ImageFilter/软著信息采集表-一种分类CTC荧光显微镜图像TRIC通道的软件.doc: Unsupported file type: .doc
+2024-09-11 10:03:09,656 - ERROR - Error processing file C:/Users/gaoruiyang/Documents/WXWork/1688856027526677/Cache/File/2024-09/SampleSheet_Nextseq550Dx.csv: Unsupported file type: .csv
+2024-09-11 11:18:15,314 - ERROR - Error processing file C:/Users/gaoruiyang/Documents/WXWork/1688856027526677/Cache/File/2024-09/SampleSheet_Nextseq550Dx.csv: 'str' object has no attribute 'open'
+2024-09-11 11:33:20,224 - ERROR - Error processing file C:/Users/gaoruiyang/Documents/WXWork/1688856027526677/Cache/File/2024-09/SampleSheet_Nextseq550Dx.csv: Unsupported or unencrypted file type: .csv
+2024-09-11 11:36:41,838 - ERROR - Error processing file C:/Users/gaoruiyang/Documents/WXWork/1688856027526677/Cache/File/2024-09/SampleSheet_Nextseq550Dx.csv: Unsupported or unencrypted file type: .csv
+2024-09-11 11:40:29,172 - ERROR - Error processing file C:/Users/gaoruiyang/Documents/WXWork/1688856027526677/Cache/File/2024-09/SampleSheet_Nextseq550Dx.csv: No active exception to reraise
+2024-09-11 12:50:39,228 - ERROR - Error processing file D:/workspace/12.80043/SXXQ20240900022/SampleSheet_Nextseq550Dx.csv: Unsupported or unencrypted file type: .csv
+2025-04-20 12:21:00,766 - ERROR - Error processing file D:/workspace/14.平扫CT在AD/方法图中文.png: Unsupported or unencrypted file type: .png
