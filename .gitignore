@@ -1,0 +1,7 @@
+# 忽略 Python 编译文件
+*.pyc
+__pycache__/
+
+# 忽略构建目录
+build/
+*.spec
