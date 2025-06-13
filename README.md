@@ -3,6 +3,8 @@
 核心思想是伪装亿赛通的白名单进程，通过亿赛通自己来解密
 
 `dist/winword.exe`可直接运行解密工具，前提是必须在可打开加密文档的电脑上运行
+执行完毕后，会在指定目录生成.info后缀的解密文件，记得修改后缀后再使用对应的应用程序打开。
+如果不能运行，请按下面的环境配置步骤进行配置，然后使用pyinstaller打包成可执行文件。
 
 ## Features
 This application supports `.docx`, `.pdf`, `.jpg`, `.jpeg`, `.png`, `.bmp`, `.gif`, `.xlsx`, and `.pptx` file formats.
